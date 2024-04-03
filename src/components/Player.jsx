@@ -5,18 +5,20 @@ export default function Player({ name, symbol }) {
     const [isEditing, setIsEditing] = useState(false);
 
     function handleEditClick() {
-        setIsEditing(true);
+        setIsEditing(editing => !editing); // schedules a state update to the opposite of the current value of isEditing
     }
 
     return (
         <li>
             <span className="player">
                 {isEditing
-                    ? <input type='text' required></input>
+                    ? <input type='text' required value={name}></input>
                     : <span className="player-name">{name}</span>}
                 <span className="player-symbol">{symbol}</span>
             </span>
-            <button onClick={handleEditClick}>Edit</button>
+            <button onClick={handleEditClick}>{
+                isEditing ? 'Save' : 'Edit'
+            }</button>
         </li>
     )
 }
