@@ -17,18 +17,6 @@ export default function GameBoard({ onSelectSquare, turns }) {
         gameBoard[row][col] = player;
     }
 
-    // const [gameBoard, setGameBoard] = useState(initialGameBoard)
-
-    // function handleSelectSquare(rowIndex, colIndex) {
-    //     setGameBoard(prevGameBoard => {
-    //         const updatedBoard = structuredClone(prevGameBoard); // my deep copy function
-    //         // const updatedBoard = [...prevGameBoard.map(innerArray => [...innerArray])];
-    //         updatedBoard[rowIndex][colIndex] = activePlayerSymbol;
-    //         return updatedBoard;
-    //     })
-    //     onSelectSquare();
-    // }
-
     return (
         <ol id="game-board">
             {gameBoard.map((row, rowIndex) => <li key={rowIndex}>

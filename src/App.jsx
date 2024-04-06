@@ -21,8 +21,8 @@ function App() {
         {
           square: { row: rowIndex, col: colIndex },
           player: currentPlayer,
-          ...prevTurns
-        }
+        },
+        ...prevTurns
       ];
 
       return updatedTurns;
@@ -40,7 +40,7 @@ function App() {
           onSelectSquare={handleSelectSquare}
           turns={gameTurns} />
       </div>
-      <Log />
+      <Log turns={gameTurns} />
     </main>
   )
 }
