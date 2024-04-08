@@ -11,25 +11,29 @@ function deriveActivePlayer(gameTurns) {
   if (gameTurns.length > 0 && gameTurns[0].player === 'X') {
     activePlayer = 'O';
   }
-
   return activePlayer;
+
+
+  // KK simplification
+  // return gameTurns.length % 2 === 0 ? 'X' : 'O';
+
 }
 
 function App() {
-  
+
   const [gameTurns, setGameTurns] = useState([])
-  
+
   const activePlayer = deriveActivePlayer(gameTurns);
 
   function handleSelectSquare(rowIndex, colIndex) {
     setGameTurns(prevTurns => {
 
-      const currentPlayer = deriveActivePlayer(prevTurns);
+      const activePlayer = deriveActivePlayer(prevTurns);
 
       const updatedTurns = [
         {
           square: { row: rowIndex, col: colIndex },
-          player: currentPlayer,
+          player: activePlayer,
         },
         ...prevTurns
       ];
