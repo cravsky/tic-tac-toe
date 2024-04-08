@@ -3,6 +3,7 @@ import { useState } from "react"
 import Player from "./components/Player"
 import GameBoard from "./components/GameBoard"
 import Log from "./components/Log"
+import { WINNING_COMBINATIONS } from "./winning-combinations"
 
 function deriveActivePlayer(gameTurns) {
 
@@ -12,7 +13,6 @@ function deriveActivePlayer(gameTurns) {
     activePlayer = 'O';
   }
   return activePlayer;
-
 
   // KK simplification
   // return gameTurns.length % 2 === 0 ? 'X' : 'O';
